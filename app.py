@@ -171,10 +171,18 @@ Policy: {inter_preds[4]:.2f}
 Status: {status}
 The model's final decision is to "{status}".
 
+
 Using the rubric below, generate a helpful feedback paragraph for the creator to understand why that status was given, and to improve their content.
+Also explain the text/background/composition/policy score in terms of missing attributes, weakly or strongly present
 
 Rubric:
 {rubric}
+
+use A.1 Text Layer rubric for Text Score
+use A.3 Background rubric for Background Score
+use A.2 Composition rubric for Composition Score
+use A.4 Policy rubric for Policy Score
+
 """
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
